@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>Recruit Kit — 招生 · 時尚造型暨表演藝術系</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<style>
+body{margin:0;background:#000;color:#fff;font-family:var(--font-tc);overflow-x:hidden}
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="Components.jsx"></script>
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+const VISION_CARDS = [
+  {tag:'造型師',title:'金馬頒獎典禮後台',desc:'第60屆金馬獎整體造型團隊'},
+  {tag:'創業',title:'開自己的工作室',desc:'美甲、美睫、紋繡，畢業就能執業'},
+  {tag:'藝人',title:'上舞台、發音樂',desc:'2025 學生音樂上架串流平台'},
+  {tag:'設計師',title:'從布料到品牌',desc:'服飾、金工、珠寶、配件設計'},
+  {tag:'自媒體',title:'懂美又懂行銷',desc:'自媒體網紅行銷是正式課程'},
+  {tag:'國際舞台',title:'去首爾學習',desc:'與 Twice、Blackpink 合作教室'},
+];
+const PATHS = [
+  {n:'01',name:'時尚造型設計',tag:'讓人變美，讓自己賺錢',desc:'彩妝、髮型、整體造型、新娘秘書、半永久妝。'},
+  {n:'02',name:'時尚服飾設計',tag:'從布料到品牌，你就是設計師',desc:'流行服飾、婚紗禮服、金工珠寶、配件飾品。'},
+  {n:'03',name:'時尚經營暨美妝保健',tag:'懂美又懂生意，最難被取代',desc:'創業輔導、品牌企劃、網路整合行銷，養生保健。'},
+  {n:'04',name:'時尚表演藝術',tag:'舞台、音樂、鏡頭，全方位藝人培訓',desc:'街舞、現代舞、歌唱、詞曲創作、導演實務。'},
+];
+const VALUE_CARDS = [
+  {tag:'紋繡眉',title:'業界 9.8萬 / 人',desc:'在萬能含在學費內',titleColor:'#e05555'},
+  {tag:'美甲 · 美睫',title:'業界 數萬 / 人',desc:'在萬能含在學費內',titleColor:'#e05555'},
+  {tag:'畢業後執業',title:'紋繡 1萬～1.5萬',desc:'眉睫 1,500~2,000 · 美甲 500~2,000'},
+];
+
+function App(){
+  const [i, setI] = useState(parseInt(localStorage.getItem('rinoDeckIdx')||'0'));
+  const n = 5;
+  const go = x => { const v = (x+n)%n; setI(v); localStorage.setItem('rinoDeckIdx', v); };
+  useEffect(() => {
+    const h = e => { if(['ArrowRight','ArrowDown',' '].includes(e.key)) go(i+1); if(['ArrowLeft','ArrowUp'].includes(e.key)) go(i-1); };
+    window.addEventListener('keydown', h); return () => window.removeEventListener('keydown', h);
+  }, [i]);
+
+  const slides = [
+    <DeckSlide bg="../../assets/cover.jpg" label="VANUNG UNIVERSITY · 114學年度招生">
+      <DeckH1>時尚造型設計<br/>暨表演藝術系</DeckH1>
+      <DeckLine />
+      <DeckSub>萬能科技大學 · 桃園航空城</DeckSub>
+    </DeckSlide>,
+    <DeckSlide bg="../../assets/makeup.jpg" label="01 · VISION">
+      <DeckH2>你想要什麼樣的人生？</DeckH2>
+      <DeckSub>這些不是夢，是我們學生正在做的事。</DeckSub>
+      <CardGrid cols={3} items={VISION_CARDS} />
+    </DeckSlide>,
+    <DeckSlide align="left" label="02 · DIRECTIONS">
+      <DeckH2>四個方向，找到你的位置</DeckH2>
+      <DeckLine left />
+      <PathList items={PATHS} />
+    </DeckSlide>,
+    <DeckSlide bg="../../assets/dance.jpg" label="03 · VALUE">
+      <DeckH2>錢的問題</DeckH2>
+      <DeckSub>這些技術在業界學費很貴。在萬能，含在學費裡。</DeckSub>
+      <CardGrid cols={3} items={VALUE_CARDS} />
+    </DeckSlide>,
+    <DeckSlide bg="../../assets/korea.jpg" label="07 · KOREA STUDY TOUR">
+      <DeckH2>去首爾，特別補助</DeckH2>
+      <DeckSub>不是觀光，是真的去業界學習。</DeckSub>
+      <CardGrid cols={2} items={[
+        {tag:'時尚類行程',desc:'首爾大學學習韓國彩妝 · 參訪時尚美妝企業 · 東大門參觀'},
+        {tag:'表藝類行程',desc:'韓國練習生訓練 · 三大舞蹈教室 · 與韓國舞者交流'},
+      ]} />
+    </DeckSlide>,
+  ];
+
+  return (<>
+    {slides[i]}
+    <DeckNav i={i} n={n} onPrev={()=>go(i-1)} onNext={()=>go(i+1)} />
+  </>);
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

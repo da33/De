@@ -1,0 +1,13 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css"><style>
+body{margin:0;background:var(--ink);color:var(--paper);padding:28px;font-family:var(--font-body);display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.field{display:flex;flex-direction:column;gap:8px}
+.l{font-size:10px;text-transform:uppercase;letter-spacing:.3em;color:var(--fg-3)}
+input, select{background:transparent;border:none;border-bottom:1px solid var(--stroke);padding:10px 0;color:var(--paper);font-family:var(--font-body);font-size:14px;outline:none;transition:border-color .2s}
+input:focus{border-color:var(--flare)}
+.cta{background:var(--paper);color:var(--ink);border:none;padding:14px;font-family:var(--font-body);font-size:11px;letter-spacing:.3em;text-transform:uppercase;cursor:pointer;grid-column:span 2}
+</style></head><body>
+<div class="field"><span class="l">Name · 姓名</span><input placeholder="Lin Yu-Fan" value="Rino"></div>
+<div class="field"><span class="l">Email</span><input type="email" placeholder="you@domain.com"></div>
+<div class="field" style="grid-column:span 2"><span class="l">Message · 訊息</span><input placeholder="Tell me about your project"></div>
+<button class="cta">Send →</button>
+</body></html>

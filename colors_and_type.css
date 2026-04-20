@@ -1,0 +1,155 @@
+/* ============================================================
+   Stage by Rino — Design Tokens
+   萬能科技大學 時尚造型暨表演藝術系 · Lin Yu-Fan (Rino)
+   Y2K / Streetwear — theatrical, saturated, chunky.
+   ============================================================ */
+
+/* Fonts — Google Fonts (hot-linked; files also cached in /fonts for offline) */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+
+:root {
+  /* ---------- CORE PALETTE ---------- */
+  --ink:        #0a0a0a;   /* near-black ground */
+  --ink-2:      #151515;   /* surface lift */
+  --ink-3:      #1f1f1f;   /* hairline bg */
+  --paper:      #f5f4f0;   /* off-white */
+  --paper-2:    #ebe8df;   /* warm cream */
+  --bone:       #d9d4c5;
+
+  /* ---------- BRAND ACCENTS (Y2K / stage-lit) ---------- */
+  --flare:      #ff3c00;   /* primary flare — traffic orange */
+  --flare-2:    #ff6b2b;
+  --acid:       #d8ff3c;   /* safety-vest chartreuse */
+  --hot:        #ff2d7b;   /* hot pink */
+  --ultra:      #7b2dff;   /* ultraviolet */
+  --cyan:       #00f0ff;   /* cyber cyan */
+  --gold:       #c9a84c;   /* vanung gold (faculty deck) */
+
+  /* ---------- SEMANTIC ---------- */
+  --fg:         var(--paper);
+  --fg-2:       rgba(245,244,240,0.65);
+  --fg-3:       rgba(245,244,240,0.35);
+  --fg-4:       rgba(245,244,240,0.15);
+  --bg:         var(--ink);
+  --bg-2:       var(--ink-2);
+  --stroke:     rgba(245,244,240,0.12);
+  --stroke-2:   rgba(245,244,240,0.28);
+  --accent:     var(--flare);
+
+  /* ---------- TYPE ---------- */
+  --font-display: 'Archivo Black', 'Noto Sans TC', sans-serif;
+  --font-body:    'Space Grotesk', 'Noto Sans TC', system-ui, sans-serif;
+  --font-tc:      'Noto Sans TC', 'Space Grotesk', sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  /* Scale (tight, modern, confident) */
+  --fs-xs: 11px;   /* tiny labels, ALL CAPS with tracking */
+  --fs-sm: 13px;
+  --fs-md: 16px;
+  --fs-lg: 20px;
+  --fs-xl: 28px;
+  --fs-2xl: 44px;
+  --fs-3xl: 72px;
+  --fs-4xl: clamp(4rem, 11vw, 12rem); /* hero bangers */
+
+  --tracking-loose: 0.3em;
+  --tracking-label: 0.2em;
+  --tracking-tight: -0.02em;
+
+  /* ---------- SPACING ---------- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+
+  /* ---------- SHAPES ---------- */
+  --r-0: 0px;       /* default: sharp corners */
+  --r-1: 2px;
+  --r-2: 6px;
+  --r-pill: 999px;
+
+  --border: 1px solid var(--stroke);
+  --border-strong: 1px solid var(--fg);
+
+  /* ---------- ELEVATION ---------- */
+  --glow-flare: 0 0 32px rgba(255,60,0,0.5);
+  --glow-acid:  0 0 32px rgba(216,255,60,0.5);
+  --glow-hot:   0 0 32px rgba(255,45,123,0.5);
+  --shadow-1:   0 1px 0 rgba(0,0,0,0.4);
+  --shadow-card: 0 20px 40px -20px rgba(0,0,0,0.6);
+
+  /* ---------- MOTION ---------- */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-1: 120ms;
+  --dur-2: 240ms;
+  --dur-3: 480ms;
+}
+
+/* ---------- TYPE PRESETS ---------- */
+.t-hero {
+  font-family: var(--font-display);
+  font-size: var(--fs-4xl);
+  line-height: 0.9;
+  letter-spacing: var(--tracking-tight);
+  text-transform: uppercase;
+}
+.t-display {
+  font-family: var(--font-display);
+  font-size: var(--fs-3xl);
+  line-height: 0.95;
+  letter-spacing: var(--tracking-tight);
+  text-transform: uppercase;
+}
+.t-h1 {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+.t-h2 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--fs-xl);
+  line-height: 1.1;
+}
+.t-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--fs-md);
+  line-height: 1.6;
+}
+.t-body-tc {
+  font-family: var(--font-tc);
+  font-weight: 400;
+  font-size: var(--fs-md);
+  line-height: 1.8;
+}
+.t-small {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--fg-2);
+}
+.t-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-loose);
+  color: var(--fg-3);
+  font-weight: 500;
+}
+.t-mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.02em;
+}
+.t-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--fg-3);
+}
