@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage by Rino — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;900&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0a0a0a;
+    --paper: #f5f4f0;
+    --flare: #ff3c00;
+    --stroke: rgba(245,244,240,0.12);
+    --fg-3: rgba(245,244,240,0.45);
+  }
+  body { background: var(--ink); color: var(--paper); font-family: 'Space Grotesk', 'Noto Sans TC', sans-serif; min-height: 100vh; }
+
+  header {
+    padding: 96px 48px 64px;
+    border-bottom: 1px solid var(--stroke);
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--flare);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(48px, 8vw, 96px);
+    line-height: 0.9;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+  h1 .outline {
+    -webkit-text-stroke: 1px var(--paper);
+    color: transparent;
+  }
+  .subtitle {
+    margin-top: 24px;
+    font-size: 14px;
+    color: var(--fg-3);
+    max-width: 480px;
+    line-height: 1.6;
+  }
+
+  main { padding: 64px 48px 96px; max-width: 1200px; }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--fg-3);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--stroke);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    border: 1px solid var(--stroke);
+    margin-bottom: 64px;
+  }
+  .card {
+    padding: 24px;
+    border: 1px solid var(--stroke);
+    text-decoration: none;
+    color: var(--paper);
+    display: block;
+    transition: background 240ms ease, border-color 240ms ease;
+  }
+  .card:hover {
+    background: #0f0f0f;
+    border-color: var(--paper);
+  }
+  .card-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--flare);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+  .card-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .card-desc {
+    font-size: 12px;
+    color: var(--fg-3);
+    line-height: 1.5;
+  }
+
+  .marquee-wrap {
+    overflow: hidden;
+    border-top: 1px solid var(--stroke);
+    border-bottom: 1px solid var(--stroke);
+    padding: 12px 0;
+    margin-bottom: 64px;
+  }
+  .marquee {
+    display: flex;
+    gap: 48px;
+    white-space: nowrap;
+    animation: marquee 20s linear infinite;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--fg-3);
+    text-transform: uppercase;
+  }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  @media (max-width: 768px) {
+    header { padding: 48px 24px 40px; }
+    main { padding: 40px 24px 64px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">001 — STAGE BY RINO</div>
+  <h1>Design<br><span class="outline">System</span></h1>
+  <p class="subtitle">林祐凡 Lin Yu-Fan · 萬能科技大學 時尚造型設計暨表演藝術系<br>Y2K / Streetwear brand system — colors, type, components & kits.</p>
+</header>
+
+<main>
+
+  <div class="marquee-wrap">
+    <div class="marquee">
+      <span>Stage ✦ Performance Art ✦ Dance ✦ Education ✦ Fashion ✦ Y2K ✦ Streetwear ✦ Vanung ✦ Stage ✦ Performance Art ✦ Dance ✦ Education ✦ Fashion ✦ Y2K ✦ Streetwear ✦ Vanung ✦</span>
+    </div>
+  </div>
+
+  <div class="section-label">002 — Preview Cards</div>
+  <div class="grid">
+    <a class="card" href="preview/01-colors-neutrals.html"><div class="card-num">01</div><div class="card-title">Colors — Neutrals</div><div class="card-desc">Ink, paper, foreground scale</div></a>
+    <a class="card" href="preview/02-colors-accents.html"><div class="card-num">02</div><div class="card-title">Colors — Accents</div><div class="card-desc">Flare, chartreuse, pink, violet, cyan, gold</div></a>
+    <a class="card" href="preview/03-colors-semantic.html"><div class="card-num">03</div><div class="card-title">Colors — Semantic</div><div class="card-desc">Error, success, warning, info</div></a>
+    <a class="card" href="preview/04-type-display.html"><div class="card-num">04</div><div class="card-title">Type — Display</div><div class="card-desc">Archivo Black headlines</div></a>
+    <a class="card" href="preview/05-type-body.html"><div class="card-num">05</div><div class="card-title">Type — Body</div><div class="card-desc">Space Grotesk · Noto Sans TC</div></a>
+    <a class="card" href="preview/06-type-hero-pattern.html"><div class="card-num">06</div><div class="card-title">Type — Hero Pattern</div><div class="card-desc">Solid + outline two-line hero</div></a>
+    <a class="card" href="preview/07-spacing-scale.html"><div class="card-num">07</div><div class="card-title">Spacing Scale</div><div class="card-desc">8px baseline grid</div></a>
+    <a class="card" href="preview/08-radii.html"><div class="card-num">08</div><div class="card-title">Radii</div><div class="card-desc">Sharp corners by default</div></a>
+    <a class="card" href="preview/09-glow.html"><div class="card-num">09</div><div class="card-title">Glow</div><div class="card-desc">Accent glow for title moments</div></a>
+    <a class="card" href="preview/10-buttons.html"><div class="card-num">10</div><div class="card-title">Buttons</div><div class="card-desc">Primary, ghost, text variants</div></a>
+    <a class="card" href="preview/11-chips.html"><div class="card-num">11</div><div class="card-title">Chips</div><div class="card-desc">Tags and label chips</div></a>
+    <a class="card" href="preview/12-list-row.html"><div class="card-num">12</div><div class="card-title">List Row</div><div class="card-desc">Hover slide interaction</div></a>
+    <a class="card" href="preview/13-hairline-grid.html"><div class="card-num">13</div><div class="card-title">Hairline Grid</div><div class="card-desc">1px gutter card grid</div></a>
+    <a class="card" href="preview/14-marquee.html"><div class="card-num">14</div><div class="card-title">Marquee</div><div class="card-desc">Infinite horizontal scroll strip</div></a>
+    <a class="card" href="preview/15-logo-lockups.html"><div class="card-num">15</div><div class="card-title">Logo Lockups</div><div class="card-desc">LIN YU-FAN · 林祐凡.VNU</div></a>
+    <a class="card" href="preview/16-photo-treatment.html"><div class="card-num">16</div><div class="card-title">Photo Treatment</div><div class="card-desc">Dark overlay, grain, stage-lit mood</div></a>
+    <a class="card" href="preview/17-form.html"><div class="card-num">17</div><div class="card-title">Form</div><div class="card-desc">Input, select, textarea, submit</div></a>
+    <a class="card" href="preview/18-stat-block.html"><div class="card-num">18</div><div class="card-title">Stat Block</div><div class="card-desc">Numbers > adjectives layout</div></a>
+  </div>
+
+  <div class="section-label">003 — UI Kits</div>
+  <div class="grid">
+    <a class="card" href="ui_kits/portfolio/index.html"><div class="card-num">KIT 01</div><div class="card-title">Portfolio Kit</div><div class="card-desc">Dark editorial personal site — Lin Yu-Fan</div></a>
+    <a class="card" href="ui_kits/recruit/index.html"><div class="card-num">KIT 02</div><div class="card-title">Recruit Kit</div><div class="card-desc">招生 landing page — dept marketing</div></a>
+  </div>
+
+  <div class="section-label">004 — Pages</div>
+  <div class="grid">
+    <a class="card" href="招生簡報.html"><div class="card-num">PAGE 01</div><div class="card-title">招生簡報</div><div class="card-desc">Department recruitment deck</div></a>
+  </div>
+
+</main>
+
+</body>
+</html>
